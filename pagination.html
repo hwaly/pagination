@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, shrink-to-fit=no">
+    <title>Document</title>
+<body>
+
+<div></div>
+
+<script>
+    class Pagination {
+        constructor(container, options) {
+            this.options = {
+                total: 13,
+                size: 5,
+                current: 1
+            };
+
+            this.container = container;
+        }
+
+        render() {
+            let tag = '<nav class="pagination"><ul>';
+            let link = (idx) => `#${idx}`;
+
+            const end = Math.min((this.options.current + this.options.size - 1), this.options.total) + 1;
+
+            for (let i = this.options.current; i < end; i++) {
+                if (i !== this.options.current) {
+                    tag += `<li><a href="${link(i)}"><span>${i}</span></a></li>`;
+                } else {
+                    tag += `<li><strong><span>${i}</span></strong></li>`;
+                }
+            }
+
+            tag += '</ul></nav>';
+
+            this.container.innerHTML = tag;
+        }
+    }
+
+    const pagination = new Pagination(document.querySelector('div'));
+
+    pagination.render();
+</script>
+
+</body>
+</html>
