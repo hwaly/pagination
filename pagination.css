@@ -1,0 +1,91 @@
+.pagination {
+    display: inline-block
+}
+
+.pagination:after {
+    display: block;
+    clear: both;
+    content: ""
+}
+
+.pagination__item {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: top
+}
+
+.pagination__anchor {
+    display: inline-block;
+    min-width: 30px;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: Montserrat, sans-serif;
+    -webkit-transition: border-color .6s ease;
+    transition: border-color .6s ease
+}
+
+.pagination__anchor .pagination__page {
+    display: inline-block;
+    position: relative;
+    line-height: 26px
+}
+
+.pagination__anchor .pagination__page:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #666;
+    content: "";
+    width: 0;
+    -webkit-transition: width .3s ease;
+    transition: width .3s ease
+}
+
+.pagination__anchor:hover .pagination__page:after {
+    width: 100%
+}
+
+.pagination__page {
+    padding-right: 5px;
+    padding-left: 5px
+}
+
+.pagination__item--current .pagination__anchor span:after {
+    display: none
+}
+
+.pagination__item--next .pagination__anchor, .pagination__item--prev .pagination__anchor {
+    width: 50px
+}
+
+.pagination__item--next .pagination__page, .pagination__item--prev .pagination__page {
+    display: block;
+    padding: 0
+}
+
+.pagination__item--next .pagination__page:after, .pagination__item--prev .pagination__page:after {
+    width: 100%;
+    background: #333
+}
+
+.pagination__item--prev {
+    /*float: left*/
+}
+
+.pagination__item--next {
+    /*float: right*/
+}
+
+.pagination__item--current .pagination__anchor, .pagination__item--next .pagination__anchor, .pagination__item--prev .pagination__anchor {
+    color: #333;
+    font-weight: 600
+}
+
+.pagination__item--disabled .pagination__anchor {
+    color: #ebebeb;
+    border-bottom-color: #ebebeb;
+    cursor: not-allowed;
+    pointer-events: none
+}
