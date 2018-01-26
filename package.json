@@ -1,0 +1,38 @@
+{
+  "name": "pagination",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Pagination.js",
+  "scripts": {
+    "server": "webpack-dev-server --inline --hot",
+    "development": "webpack --progress --hide-modules",
+    "production": "webpack -p --progress --hide-modules",
+    "dev": "npm run development",
+    "prod": "npm run production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwaly/pagination.git"
+  },
+  "keywords": [],
+  "author": "연병화",
+  "license": "MIT",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.0.9",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  }
+}

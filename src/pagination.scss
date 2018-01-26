@@ -1,0 +1,125 @@
+$pagination-control-width: 30px;
+$pagination-icon-size: 6px;
+
+.pagination {
+    display: inline-block;
+    list-style: none;
+
+    &__item {
+        float: left;
+        vertical-align: top;
+    }
+
+    &__anchor {
+        display: block;
+        min-width: 30px;
+        padding: 8px 4px;
+        color: #666;
+        font-weight: 400;
+        font-size: 14px;
+        font-family: "Noto Sans KR", "나눔고딕", "Nanum Gothic", NanumGothic, "돋움", Dotum, Arial, sans-serif;
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    &__control & {
+        &__anchor {
+            position: relative;
+            width: $pagination-control-width;
+            min-width: auto;
+            color: #333;
+
+            &:before,
+            &:after {
+                position: absolute;
+                top: calc(50% - #{$pagination-icon-size / 2});
+                width: $pagination-icon-size;
+                height: $pagination-icon-size;
+                content: "";
+                transform-origin: center;
+                transform: rotate(-45deg);
+            }
+        }
+
+        &__page {
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+
+    &__item--prev &,
+    &__item--next & {
+        &__anchor {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &__item--first &,
+    &__item--prev & {
+        &__anchor {
+            &:before,
+            &:after {
+                left: 0;
+                border-top: 2px solid;
+                border-left: 2px solid;
+            }
+        }
+    }
+
+    &__item--next &,
+    &__item--last & {
+        &__anchor {
+            &:before,
+            &:after {
+                right: 0;
+                border-right: 2px solid;
+                border-bottom: 2px solid;
+            }
+        }
+    }
+
+    @each $class, $direction in (first, left), (last, right) {
+        &__item--#{$class} & {
+            &__anchor {
+                &:before {
+                    margin-#{$direction}: (($pagination-control-width - $pagination-icon-size) / 2) - 3;
+                }
+
+                &:after {
+                    margin-#{$direction}: (($pagination-control-width - $pagination-icon-size) / 2) + 3;
+                }
+            }
+        }
+    }
+
+    @each $class, $direction in (prev, left), (next, right) {
+        &__item--#{$class} & {
+            &__anchor {
+                &:before {
+                    margin-#{$direction}: (($pagination-control-width - 6) / 2) + 1;
+                }
+            }
+        }
+    }
+
+    &__item--current & {
+        &__anchor {
+            color: #000;
+        }
+
+        &__page {
+            border-bottom: 1px solid;
+        }
+    }
+
+    &__item--disabled & {
+        &__anchor {
+            color: #aaa;
+            cursor: not-allowed;
+        }
+    }
+}
