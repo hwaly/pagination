@@ -1,4 +1,4 @@
-import Pagination from './Pagination';
+import Pagination from '../src/Pagination';
 
 document.addEventListener('DOMContentLoaded', _ => {
     const divs = document.querySelectorAll('div');
@@ -6,15 +6,16 @@ document.addEventListener('DOMContentLoaded', _ => {
     new Pagination(divs[0], {
         current: 2,
         total: 21,
-        size: 3
+        size: 3,
+        href: '/list.html',
     });
 
     const pagination2 =  new Pagination(divs[1], {
         current: 134,
         total: 200,
         size: 7,
-        href: '/',
-        query: 'page=',
+        href: '/list.html/',
+        query: 'search=a&page=',
         onClick(e) {
             e.preventDefault();
 

@@ -7,12 +7,12 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: {
         'pagination': [
-            './src/pagination-test.js',
+            './test/pagination-test.js',
             './src/pagination.scss'
         ]
     },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'test'),
         filename: '[name].js'
     },
     module: {
@@ -61,7 +61,7 @@ module.exports = {
         headers: {
             "Access-Control-Allow-Origin": "*"
         },
-        contentBase: [path.resolve(__dirname, 'dist'), path.resolve(__dirname, 'test')],
+        contentBase: path.resolve(__dirname, 'test'),
         historyApiFallback: true,
         noInfo: true,
         compress: true

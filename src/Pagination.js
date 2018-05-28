@@ -1,4 +1,9 @@
 class Pagination {
+    /*
+     * 초기 실행
+     * @param {String | DOM} container
+     * @param {Object} options
+     */
     constructor(container, options) {
         const _defaultOptions = {
             size: 10,
@@ -16,7 +21,7 @@ class Pagination {
             paginationClass: 'pagination',
             itemClass: 'pagination__item',
             controlClass: 'pagination__control',
-            anchorClass: 'pagination__anchor',
+            anchorClass: 'pagination__link',
             currentClass: 'pagination__item--current',
             disabledClass: 'pagination__item--disabled',
             textClass: 'pagination__page',
@@ -42,8 +47,8 @@ class Pagination {
             case 'init':
                 if (value) return true;
 
-            case type:
-                if (typeof value === type) return true;
+            case 'number':
+                if (typeof value === 'number') return true;
 
             default:
                 console.log(message);
@@ -78,7 +83,7 @@ class Pagination {
 
     makeControl(type) {
         const text = this.makeText(type);
-        const anchor = this.makeAnchor(this.options[type], this.options[type], text);
+        const anchor = this.makeLink(this.options[type], this.options[type], text);
 
         return this.makeItem(anchor, 'control', type, this.options[type]);
     }
@@ -90,7 +95,7 @@ class Pagination {
         for (let i = this.options.start; i < this.options.end; i++) {
             const isCurrent = i !== current ? '' : 'current';
             const text = this.makeText(i);
-            const anchor = this.makeAnchor(i, isCurrent, text);
+            const anchor = this.makeLink(i, isCurrent, text);
 
             result += this.makeItem(anchor, isCurrent);
         }
@@ -108,7 +113,7 @@ class Pagination {
         return `<li class="${classList}">${text}</li>`;
     }
 
-    makeAnchor(page, status, text) {
+    makeLink(page, status, text) {
         switch (status) {
             case 'current':
                 return `<strong class="${this.options.anchorClass}">${text}</strong>`;
@@ -124,8 +129,8 @@ class Pagination {
 
     makeText(page) {
         return `<span class="${this.options.textClass}">
-                        ${typeof page === 'number' ? page : this.options[page + 'Text']}
-                    </span>`;
+            ${typeof page === 'number' ? page : this.options[page + 'Text']}
+        </span>`;
     }
 
     render() {
