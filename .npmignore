@@ -5,9 +5,8 @@ Thumbs.db
 *.sublime-workspace
 npm-debug.log*
 package-lock.json
-webpack.config.js
 
+.git*
 .idea/
 node_modules/
-
-*.html
+test/

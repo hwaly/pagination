@@ -10,7 +10,7 @@ $pagination-icon-size: 6px;
         vertical-align: top;
     }
 
-    &__anchor {
+    &__link {
         display: block;
         min-width: 30px;
         padding: 8px 4px;
@@ -25,7 +25,7 @@ $pagination-icon-size: 6px;
     }
 
     &__control & {
-        &__anchor {
+        &__link {
             position: relative;
             width: $pagination-control-width;
             min-width: auto;
@@ -51,7 +51,7 @@ $pagination-icon-size: 6px;
 
     &__item--prev &,
     &__item--next & {
-        &__anchor {
+        &__link {
             &:after {
                 display: none;
             }
@@ -60,7 +60,7 @@ $pagination-icon-size: 6px;
 
     &__item--first &,
     &__item--prev & {
-        &__anchor {
+        &__link {
             &:before,
             &:after {
                 left: 0;
@@ -72,7 +72,7 @@ $pagination-icon-size: 6px;
 
     &__item--next &,
     &__item--last & {
-        &__anchor {
+        &__link {
             &:before,
             &:after {
                 right: 0;
@@ -84,7 +84,7 @@ $pagination-icon-size: 6px;
 
     @each $class, $direction in (first, left), (last, right) {
         &__item--#{$class} & {
-            &__anchor {
+            &__link {
                 &:before {
                     margin-#{$direction}: (($pagination-control-width - $pagination-icon-size) / 2) - 3;
                 }
@@ -98,7 +98,7 @@ $pagination-icon-size: 6px;
 
     @each $class, $direction in (prev, left), (next, right) {
         &__item--#{$class} & {
-            &__anchor {
+            &__link {
                 &:before {
                     margin-#{$direction}: (($pagination-control-width - 6) / 2) + 1;
                 }
@@ -107,7 +107,7 @@ $pagination-icon-size: 6px;
     }
 
     &__item--current & {
-        &__anchor {
+        &__link {
             color: #000;
         }
 
@@ -117,7 +117,7 @@ $pagination-icon-size: 6px;
     }
 
     &__item--disabled & {
-        &__anchor {
+        &__link {
             color: #aaa;
             cursor: not-allowed;
         }
