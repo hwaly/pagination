@@ -136,10 +136,9 @@ class Pagination {
     }
 
     render() {
-        if (this.isValid('init', container, 'container 는 필수입니다.')) {
-            return;
-        }
-
+        // if (this.isValid('init', container, 'container 는 필수입니다.')) {
+        //     return;
+        // }
         this.getPage();
 
         const tag = [
