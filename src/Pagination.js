@@ -35,10 +35,12 @@ class Pagination {
 
         Object.assign(this.options = {}, _defaultOptions, options);
 
-        this.container = container;
+        this.setContainer(container);
+    }
 
-        if (this.isValid('init', container, 'container 는 필수입니다.')) {
-            this.render();
+    setContainer(container) {
+        if (container) {
+            this.container = container;
         }
     }
 
@@ -134,6 +136,10 @@ class Pagination {
     }
 
     render() {
+        if (this.isValid('init', container, 'container 는 필수입니다.')) {
+            return;
+        }
+
         this.getPage();
 
         const tag = [

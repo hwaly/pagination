@@ -1,8 +1,8 @@
 {
   "name": "hwaly-pagination",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "페이지용",
-  "main": "index.js",
+  "main": "src/Pagination.js",
   "keywords": [
     "pagination",
     "js",
